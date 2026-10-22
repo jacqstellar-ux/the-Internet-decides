@@ -1,1 +1,52 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b0d">
+<title>THE INTERNET DECIDES — Experiment 001</title>
+<style>
+:root{--bg:#090b0d;--panel:#111519;--line:#283137;--text:#f2f5f3;--muted:#9ca9a6;--lime:#c5ff5b;--pink:#ff4d83}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#233027 0,transparent 48%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{max-width:760px;margin:auto;padding:22px 18px 52px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:5px 0 17px}.brand{font-size:12px;letter-spacing:.2em;font-weight:850}.live{font-size:10px;letter-spacing:.12em;color:var(--lime);border:1px solid #4c642b;padding:7px 9px;border-radius:30px}.dot{display:inline-block;width:6px;height:6px;background:var(--lime);border-radius:50%;margin-right:6px;box-shadow:0 0 10px var(--lime)}
+.eyebrow{margin-top:38px;color:var(--lime);font-size:11px;letter-spacing:.22em;font-weight:800}.hero{font-size:clamp(42px,10vw,76px);line-height:.91;letter-spacing:-.065em;font-weight:950;margin:15px 0 18px}.hero span{color:var(--lime)}.sub{color:#b4bfbb;line-height:1.6;max-width:530px;font-size:15px}.panel{margin-top:28px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#151b1e,#0e1214);padding:20px;box-shadow:0 22px 70px #0005}.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.tag{font-size:10px;letter-spacing:.14em;color:var(--muted);font-weight:800}.timer{font-variant-numeric:tabular-nums;font-size:12px;color:var(--lime)}h2{font-size:clamp(24px,6vw,36px);letter-spacing:-.04em;line-height:1.08;margin:23px 0 10px}.desc{color:var(--muted);font-size:13px;line-height:1.55}.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}.choice{position:relative;min-height:150px;text-align:left;border:1px solid #344047;border-radius:14px;background:#171e22;color:var(--text);padding:16px;cursor:pointer;transition:.2s}.choice:hover{border-color:var(--lime);transform:translateY(-2px)}.choice:disabled{cursor:default}.choice .letter{font-size:11px;color:var(--lime);letter-spacing:.16em;font-weight:800}.choice strong{display:block;font-size:20px;margin:22px 0 7px;letter-spacing:-.03em}.choice small{color:var(--muted);font-size:11px;line-height:1.4}.choice.selected{border-color:var(--lime);background:#202c18;box-shadow:inset 0 0 0 1px var(--lime)}.choice.selected:after{content:"YOUR VOTE";position:absolute;top:12px;right:12px;color:var(--lime);font-size:8px;letter-spacing:.1em}.results{margin-top:20px}.resultrow{display:flex;justify-content:space-between;font-size:11px;color:#d5ddda;margin:13px 0 7px}.bar{height:6px;background:#283137;border-radius:9px;overflow:hidden}.fill{height:100%;background:var(--lime);border-radius:9px;transition:width .5s}.fill.b{background:var(--pink)}.hint{margin-top:15px;font-size:11px;color:var(--muted);line-height:1.5}.share{width:100%;margin-top:16px;background:var(--lime);color:#11170b;border:0;border-radius:11px;padding:15px;font-weight:900;font-size:13px;letter-spacing:.02em;cursor:pointer}.lower{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.mini{border:1px solid var(--line);border-radius:14px;padding:16px;background:#0e1214}.mini b{display:block;font-size:11px;letter-spacing:.13em;margin-bottom:9px}.mini p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}.foot{margin-top:28px;display:flex;justify-content:space-between;gap:12px;color:#66716e;font-size:10px;letter-spacing:.08em}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#e9ffd1;color:#13190c;padding:12px 16px;border-radius:12px;font-size:12px;font-weight:800;display:none;max-width:90%;box-shadow:0 10px 35px #0008}
+@media(max-width:420px){.wrap{padding:17px 14px 35px}.panel{padding:16px}.choice{padding:13px;min-height:145px}.choice strong{font-size:18px}.lower{grid-template-columns:1fr}.foot{flex-direction:column}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="top"><div class="brand">TID<span style="color:var(--lime)">/</span>LAB</div><div class="live"><i class="dot"></i>EXPERIMENT OPEN</div></header>
+<div class="eyebrow">A COLLECTIVE INTERNET EXPERIMENT</div>
+<div class="hero">THE INTERNET<br><span>DECIDES.</span></div>
+<p class="sub">One question. Two possible futures. You cast a vote. The internet chooses what happens next.</p>
+<section class="panel">
+<div class="panel-head"><span class="tag">EXPERIMENT 001 / THE FIRST CHOICE</span><span class="timer" id="timer">CLOSING IN 23:59:59</span></div>
+<h2>What should we build first?</h2>
+<p class="desc">This is the first decision. Pick the path you want the project to take. Your choice will be saved on this device in this prototype.</p>
+<div class="choices">
+<button class="choice" id="a" onclick="vote('a')"><span class="letter">OPTION A / 01</span><strong>THE BLACKOUT</strong><small>A mysterious website that unlocks one hidden secret every day.</small></button>
+<button class="choice" id="b" onclick="vote('b')"><span class="letter">OPTION B / 02</span><strong>THE CHAOS</strong><small>A live chain of decisions where every vote changes the next challenge.</small></button>
+</div>
+<div class="results">
+<div class="resultrow"><span>THE BLACKOUT</span><span id="pa">50%</span></div><div class="bar"><div class="fill" id="ba" style="width:50%"></div></div>
+<div class="resultrow"><span>THE CHAOS</span><span id="pb">50%</span></div><div class="bar"><div class="fill b" id="bb" style="width:50%"></div></div>
+</div>
+<p class="hint" id="hint">Prototype preview: these percentages are illustrative, not votes from other visitors. A shared database is needed for real-time global voting.</p>
+<button class="share" onclick="share()">SHARE THE EXPERIMENT ↗</button>
+</section>
+<div class="lower">
+<div class="mini"><b>01 / YOUR IMPACT</b><p>Your vote is remembered on this device. The next version will use a shared vote count.</p></div>
+<div class="mini"><b>02 / WHAT HAPPENS NEXT?</b><p>The winning option becomes the next build. Every new experiment starts with the community.</p></div>
+</div>
+<footer class="foot"><span>NOT A GAME. NOT JUST A POLL.</span><span>BUILT BY THE INTERNET, ONE DECISION AT A TIME.</span></footer>
+</main><div class="toast" id="toast"></div>
+<script>
+const $=id=>document.getElementById(id);
+let chosen=localStorage.getItem('tid_vote');
+function showVote(){['a','b'].forEach(k=>{$(k).classList.toggle('selected',chosen===k)});if(chosen){$('hint').textContent='Your vote is saved on this device. Global results are not connected in this prototype yet.'}}
+function vote(k){chosen=k;localStorage.setItem('tid_vote',k);showVote();toast('VOTE RECORDED ON THIS DEVICE ✓')}
+function toast(s){$('toast').textContent=s;$('toast').style.display='block';setTimeout(()=>{$('toast').style.display='none'},2200)}
+async function share(){let data={title:'THE INTERNET DECIDES',text:'One question. Two possible futures. What should the internet decide?',url:location.href};try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(location.href);toast('LINK COPIED — send it to a friend')} }catch(e){}}
+showVote();
+let end=Date.now()+86400000;function tick(){let s=Math.max(0,Math.floor((end-Date.now())/1000)),h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s%3600/60)).padStart(2,'0'),sec=String(s%60).padStart(2,'0');$('timer').textContent='PREVIEW '+h+':'+m+':'+sec}tick();setInterval(tick,1000);
+</script></body></html>
