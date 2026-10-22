@@ -1,123 +1,799 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
+
+<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#090b0d">
-<title>THE INTERNET DECIDES — Experiment 001</title>
+
+<meta name="theme-color" content="#050006">
+
+<title>ASHTREY // THE INTERNET DECIDES</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Space+Mono:wght@400;700&family=Nosifer&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#090b0d;--panel:#111519;--line:#283137;--text:#f2f5f3;--muted:#9ca9a6;--lime:#c5ff5b;--pink:#ff4d83}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#233027 0,transparent 48%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;min-height:100vh}
-.wrap{max-width:760px;margin:auto;padding:22px 18px 52px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:5px 0 17px}.brand{font-size:12px;letter-spacing:.2em;font-weight:850}.live{font-size:10px;letter-spacing:.12em;color:var(--lime);border:1px solid #4c642b;padding:7px 9px;border-radius:30px}.dot{display:inline-block;width:6px;height:6px;background:var(--lime);border-radius:50%;margin-right:6px;box-shadow:0 0 10px var(--lime)}
-.eyebrow{margin-top:38px;color:var(--lime);font-size:11px;letter-spacing:.22em;font-weight:800}.hero{font-size:clamp(42px,10vw,76px);line-height:.91;letter-spacing:-.065em;font-weight:950;margin:15px 0 18px}.hero span{color:var(--lime)}.sub{color:#b4bfbb;line-height:1.6;max-width:530px;font-size:15px}.panel{margin-top:28px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#151b1e,#0e1214);padding:20px;box-shadow:0 22px 70px #0005}.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.tag{font-size:10px;letter-spacing:.14em;color:var(--muted);font-weight:800}.timer{font-variant-numeric:tabular-nums;font-size:12px;color:var(--lime)}h2{font-size:clamp(24px,6vw,36px);letter-spacing:-.04em;line-height:1.08;margin:23px 0 10px}.desc{color:var(--muted);font-size:13px;line-height:1.55}.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}.choice{position:relative;min-height:150px;text-align:left;border:1px solid #344047;border-radius:14px;background:#171e22;color:var(--text);padding:16px;cursor:pointer;transition:.2s}.choice:hover{border-color:var(--lime);transform:translateY(-2px)}.choice:disabled{cursor:default;opacity:.9}.choice .letter{font-size:11px;color:var(--lime);letter-spacing:.16em;font-weight:800}.choice strong{display:block;font-size:20px;margin:22px 0 7px;letter-spacing:-.03em}.choice small{color:var(--muted);font-size:11px;line-height:1.4}.choice.selected{border-color:var(--lime);background:#202c18;box-shadow:inset 0 0 0 1px var(--lime)}.choice.selected:after{content:"YOUR VOTE";position:absolute;top:12px;right:12px;color:var(--lime);font-size:8px;letter-spacing:.1em}.results{margin-top:20px}.resultrow{display:flex;justify-content:space-between;font-size:11px;color:#d5ddda;margin:13px 0 7px}.bar{height:6px;background:#283137;border-radius:9px;overflow:hidden}.fill{height:100%;background:var(--lime);border-radius:9px;transition:width .5s}.fill.b{background:var(--pink)}.hint{margin-top:15px;font-size:11px;color:var(--muted);line-height:1.5}.share{width:100%;margin-top:16px;background:var(--lime);color:#11170b;border:0;border-radius:11px;padding:15px;font-weight:900;font-size:13px;cursor:pointer}.lower{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.mini{border:1px solid var(--line);border-radius:14px;padding:16px;background:#0e1214}.mini b{display:block;font-size:11px;letter-spacing:.13em;margin-bottom:9px}.mini p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}.foot{margin-top:28px;display:flex;justify-content:space-between;gap:12px;color:#66716e;font-size:10px;letter-spacing:.08em}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#e9ffd1;color:#13190c;padding:12px 16px;border-radius:12px;font-size:12px;font-weight:800;display:none;max-width:90%;box-shadow:0 10px 35px #0008}
-@media(max-width:420px){.wrap{padding:17px 14px 35px}.panel{padding:16px}.choice{padding:13px;min-height:145px}.choice strong{font-size:18px}.lower{grid-template-columns:1fr}.foot{flex-direction:column}}
+
+:root{
+
+  --black:#050006;
+
+  --red:#ff002f;
+
+  --red2:#8f001b;
+
+  --purple:#a000ff;
+
+  --violet:#450078;
+
+  --acid:#d7ff00;
+
+  --white:#f5eafa;
+
+}
+
+*{box-sizing:border-box}
+
+html{background:var(--black);scroll-behavior:smooth}
+
+body{
+
+  margin:0;background:var(--black);color:var(--white);
+
+  font-family:'Space Mono',monospace;overflow-x:hidden;
+
+  min-height:100vh;isolation:isolate;
+
+}
+
+body:before{
+
+  content:"";position:fixed;inset:-50%;z-index:10;pointer-events:none;
+
+  opacity:.16;mix-blend-mode:screen;
+
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.91' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+
+  animation:grain .18s steps(2) infinite;
+
+}
+
+body:after{
+
+  content:"";position:fixed;inset:0;z-index:9;pointer-events:none;
+
+  background:repeating-linear-gradient(0deg,transparent 0 3px,#000 4px,#000 5px,transparent 6px);
+
+  opacity:.34;
+
+}
+
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(2%,-1%)}50%{transform:translate(-1%,2%)}75%{transform:translate(1%,1%)}100%{transform:translate(-2%,-1%)}}
+
+@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+
+@keyframes flicker{0%,94%,96%,100%{opacity:1}95%{opacity:.55}}
+
+@keyframes spin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+
+@keyframes orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+@keyframes alienFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-9px) rotate(3deg)}}
+
+@keyframes glitch{
+
+  0%,88%,100%{transform:translate(0);clip-path:inset(0)}
+
+  89%{transform:translate(-5px,2px);clip-path:inset(20% 0 62% 0)}
+
+  91%{transform:translate(5px,-1px);clip-path:inset(65% 0 8% 0)}
+
+  93%{transform:translate(-2px,0);clip-path:inset(40% 0 42% 0)}
+
+}
+
+@keyframes scan{from{top:-30%}to{top:130%}}
+
+@keyframes flare{0%,100%{opacity:.15}50%{opacity:.65}}
+
+a{color:inherit}
+
+.wrap{width:min(100% - 32px,900px);margin:auto;position:relative}
+
+.topbar{
+
+  display:flex;align-items:center;justify-content:space-between;
+
+  padding:22px 0 17px;border-bottom:1px solid #ff003c45;
+
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+
+}
+
+.live{color:var(--red);animation:pulse 1s infinite}
+
+.live:before{content:"● ";font-size:12px}
+
+.top-right{color:#795d84;text-align:right}
+
+.hero{position:relative;text-align:center;padding:clamp(32px,8vh,80px) 0 32px}
+
+.kicker{
+
+  display:inline-block;border:1px solid var(--red);color:var(--red);
+
+  padding:8px 11px;font-size:9px;letter-spacing:3px;
+
+  box-shadow:0 0 18px #ff002f40;text-transform:uppercase;
+
+  transform:rotate(-2deg);margin-bottom:26px;
+
+}
+
+h1{
+
+  font-family:'Black Ops One',Impact,sans-serif;
+
+  font-size:clamp(38px,9.8vw,92px);line-height:.88;
+
+  letter-spacing:-3px;text-transform:uppercase;margin:0;
+
+  color:#f8eafa;text-shadow:3px 0 var(--red),-3px 0 var(--purple),0 0 30px #b000ff66;
+
+  animation:flicker 7s infinite;
+
+}
+
+.subtitle{font-size:10px;letter-spacing:2px;color:#9c819f;margin:20px 0 0}
+
+.subtitle strong{color:var(--acid);font-weight:400}
+
+.scene{
+
+  height:clamp(210px,42vw,330px);perspective:850px;
+
+  position:relative;display:grid;place-items:center;margin:20px 0 8px;
+
+  overflow:hidden;
+
+}
+
+.scene:before{
+
+  content:"";position:absolute;width:80%;height:60%;
+
+  background:radial-gradient(ellipse,#ff002f27 0%,#6a00ff20 36%,transparent 72%);
+
+  filter:blur(16px);animation:flare 3s infinite;
+
+}
+
+.scene:after{
+
+  content:"";position:absolute;width:90%;height:1px;
+
+  background:linear-gradient(90deg,transparent,var(--red),var(--purple),transparent);
+
+  box-shadow:0 0 20px var(--red);bottom:26%;
+
+}
+
+.ring{
+
+  position:absolute;width:min(72vw,420px);aspect-ratio:1;border:1px solid #8f00ff65;
+
+  border-radius:50%;transform:rotateX(72deg) rotateZ(-15deg);
+
+  box-shadow:0 0 22px #8f00ff30,inset 0 0 22px #ff003020;
+
+}
+
+.ring.r2{width:min(55vw,320px);border-color:#ff003b77;transform:rotateX(72deg) rotateZ(35deg)}
+
+.ring.r3{width:min(82vw,470px);border-style:dashed;border-color:#ff003b55;animation:orbit 22s linear infinite}
+
+.word-stage{
+
+  width:100%;display:grid;place-items:center;position:relative;
+
+  transform-style:preserve-3d;perspective:800px;z-index:2;
+
+}
+
+.word{
+
+  position:relative;display:inline-block;white-space:nowrap;
+
+  font-family:'Black Ops One',Impact,sans-serif;
+
+  font-size:clamp(48px,13.7vw,124px);letter-spacing:2px;
+
+  line-height:1;color:#fff4ff;
+
+  transform-style:preserve-3d;
+
+  animation:spin 7s linear infinite;
+
+  text-shadow:
+
+    1px 1px 0 #ff003c,2px 2px 0 #d00034,3px 3px 0 #a0002d,
+
+    4px 4px 0 #710020,5px 5px 0 #480019,
+
+    -2px 0 0 #9d00ff,0 0 12px #ff003c,0 0 38px #d000ff99;
+
+}
+
+.word:before,.word:after{
+
+  content:"ASHTREY";position:absolute;inset:0;pointer-events:none;
+
+}
+
+.word:before{color:var(--red);transform:translateZ(-7px);opacity:.8}
+
+.word:after{color:var(--purple);transform:translateZ(-14px);opacity:.65}
+
+.scene-label{
+
+  position:absolute;bottom:5px;font-size:8px;letter-spacing:4px;
+
+  color:#76567f;z-index:3;
+
+}
+
+.alien-area{
+
+  display:grid;grid-template-columns:110px 1fr;align-items:center;gap:18px;
+
+  padding:18px;border:1px solid #8d00ff55;
+
+  background:linear-gradient(120deg,#130018d9,#080009e8 60%,#1b0008d9);
+
+  box-shadow:inset 0 0 30px #7800ff13,0 0 24px #6100ff12;
+
+  position:relative;overflow:hidden;margin:12px 0 30px;
+
+}
+
+.alien-area:after{
+
+  content:"";position:absolute;left:0;top:0;width:3px;height:100%;
+
+  background:var(--red);box-shadow:0 0 20px var(--red);
+
+}
+
+.alien{
+
+  width:100px;height:112px;display:grid;place-items:center;
+
+  perspective:500px;animation:alienFloat 4s ease-in-out infinite;
+
+}
+
+.alien svg{
+
+  width:100%;height:100%;overflow:visible;
+
+  filter:drop-shadow(0 0 8px #ff003b) drop-shadow(0 0 22px #7d00ff);
+
+  animation:spin 16s linear infinite;
+
+}
+
+.alien-title{font-family:'Black Ops One',sans-serif;font-size:20px;color:var(--red);margin:0 0 8px;text-shadow:0 0 15px #ff003c88}
+
+.alien-copy{font-size:9px;line-height:1.8;color:#a68aa9;margin:0}
+
+.alien-copy strong{color:var(--acid);font-weight:400}
+
+.section-head{
+
+  display:flex;justify-content:space-between;gap:12px;align-items:end;
+
+  border-bottom:1px solid #6c1641;padding-bottom:12px;margin-bottom:15px;
+
+}
+
+.section-head h2{font-family:'Black Ops One',sans-serif;font-size:clamp(24px,6vw,36px);margin:0;line-height:1;color:#fff}
+
+.section-head span{font-size:9px;color:var(--red);letter-spacing:2px;text-align:right}
+
+.prompt{font-size:11px;color:#ad91b0;line-height:1.7;margin:0 0 20px}
+
+.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.option{
+
+  appearance:none;width:100%;text-align:left;cursor:pointer;color:white;
+
+  min-height:190px;padding:18px 14px;border:1px solid #ff003b6b;
+
+  background:linear-gradient(150deg,#1b000a,#090009 65%,#160021);
+
+  position:relative;overflow:hidden;transition:transform .18s,border-color .18s,box-shadow .18s;
+
+}
+
+.option:before{
+
+  content:"";position:absolute;inset:0;opacity:.18;pointer-events:none;
+
+  background:repeating-linear-gradient(135deg,transparent 0 9px,#ff003c 10px,#ff003c 11px,transparent 12px 21px);
+
+}
+
+.option.chaos{border-color:#8700ff8a;background:linear-gradient(150deg,#13001f,#080009 65%,#20002c)}
+
+.option:active{transform:scale(.97)}
+
+.option:hover{border-color:var(--red);box-shadow:0 0 25px #ff003c25}
+
+.option.chaos:hover{border-color:var(--purple);box-shadow:0 0 25px #8f00ff35}
+
+.option-top{font-size:9px;letter-spacing:2px;color:#8c6b8e;position:relative}
+
+.option h3{font-family:'Black Ops One',sans-serif;font-size:clamp(22px,5vw,34px);margin:23px 0 12px;line-height:1;color:var(--red);position:relative}
+
+.option.chaos h3{color:#c76bff}
+
+.option p{font-size:10px;line-height:1.8;color:#bba8bf;margin:0;position:relative}
+
+.vote-action{display:block;margin-top:22px;font-size:9px;letter-spacing:2px;color:var(--acid);position:relative}
+
+.results{margin-top:25px;padding:18px 0;border-top:1px solid #522044;border-bottom:1px solid #522044}
+
+.results-head{display:flex;justify-content:space-between;font-size:9px;letter-spacing:2px;color:#a78aaa;margin-bottom:20px}
+
+.results-head strong{color:var(--acid);font-weight:400}
+
+.result-row{margin:17px 0}
+
+.result-meta{display:flex;justify-content:space-between;gap:12px;font-size:10px;margin-bottom:8px}
+
+.result-meta span:first-child{color:#d7c4da}
+
+.result-meta span:last-child{color:var(--acid)}
+
+.track{height:8px;background:#1a101e;overflow:hidden;transform:skewX(-12deg);border:1px solid #38213c}
+
+.fill{height:100%;width:0%;transition:width .7s ease;background:linear-gradient(90deg,#650016,#ff002f,#ff5c9d);box-shadow:0 0 16px #ff003c}
+
+.fill.purple{background:linear-gradient(90deg,#39005f,#a000ff,#ef68ff);box-shadow:0 0 16px #9000ff}
+
+.status{font-size:10px;line-height:1.8;color:#927b98;min-height:23px;margin-top:15px}
+
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 35px}
+
+.action{
+
+  appearance:none;border:1px solid #512442;background:#10000f;color:#d6b9dc;
+
+  font:10px 'Space Mono',monospace;letter-spacing:1px;padding:13px 14px;cursor:pointer;
+
+}
+
+.action.primary{background:var(--red);color:#080006;border-color:var(--red);font-weight:bold;box-shadow:0 0 20px #ff003c40}
+
+.footer{border-top:1px solid #38112e;padding:20px 0 34px;font-size:9px;line-height:2;color:#634b69;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+
+.footer strong{color:var(--red);font-weight:400}
+
+.corner{position:fixed;z-index:8;pointer-events:none;font-size:8px;letter-spacing:2px;color:#ff003b88;writing-mode:vertical-rl}
+
+.corner.left{left:5px;top:40%}.corner.right{right:5px;top:30%;color:#9e00ff99}
+
+.scanbar{position:fixed;z-index:8;pointer-events:none;left:0;right:0;height:90px;top:-100px;background:linear-gradient(transparent,#ff003c0a,#c300ff18,transparent);animation:scan 9s linear infinite}
+
+@media(max-width:440px){
+
+  .wrap{width:calc(100% - 30px)}
+
+  .topbar{font-size:8px;letter-spacing:1px}
+
+  .alien-area{grid-template-columns:83px 1fr;gap:12px;padding:14px}
+
+  .alien{width:80px;height:95px}
+
+  .options{gap:8px}
+
+  .option{padding:15px 11px;min-height:200px}
+
+  .option h3{font-size:22px}
+
+  .option p{font-size:9px}
+
+  .word{font-size:13vw}
+
+  .scene{height:235px}
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+
+}
+
 </style>
+
 </head>
+
 <body>
+
+<div class="scanbar"></div>
+
+<div class="corner left">SIGNAL LOST // SIGNAL FOUND</div>
+
+<div class="corner right">UNKNOWN ENTITY // 001</div>
+
 <main class="wrap">
-<header class="top"><div class="brand">TID<span style="color:var(--lime)">/</span>LAB</div><div class="live"><i class="dot"></i>EXPERIMENT OPEN</div></header>
-<div class="eyebrow">A COLLECTIVE INTERNET EXPERIMENT</div>
-<div class="hero">THE INTERNET<br><span>DECIDES.</span></div>
-<p class="sub">One question. Two possible futures. You cast a vote. The internet chooses what happens next.</p>
-<section class="panel">
-<div class="panel-head"><span class="tag">EXPERIMENT 001 / THE FIRST CHOICE</span><span class="timer" id="timer">GLOBAL RESULTS</span></div>
-<h2>WHAT HAPPENS NEXT?</h2>
-<p class="desc">One choice. One outcome. The internet decides.</p>
-<div class="choices">
-<button class="choice" id="a" onclick="vote('a')"><span class="letter">OPTION A / 01</span><strong>THE BLACKOUT</strong><small>A mysterious website that unlocks one hidden secret every day.</small></button>
-<button class="choice" id="b" onclick="vote('b')"><span class="letter">OPTION B / 02</span><strong>THE CHAOS</strong><small>A live chain of decisions where every vote changes the next challenge.</small></button>
-</div>
-<div class="results">
-<div class="resultrow"><span>THE BLACKOUT</span><span id="pa">0%</span></div><div class="bar"><div class="fill" id="ba" style="width:0%"></div></div>
-<div class="resultrow"><span>THE CHAOS</span><span id="pb">0%</span></div><div class="bar"><div class="fill b" id="bb" style="width:0%"></div></div>
-</div>
-<p class="hint" id="hint">Connecting to the shared vote database…</p>
-<button class="share" onclick="share()">SHARE THE EXPERIMENT ↗</button>
-</section>
-<div class="lower">
-<div class="mini"><b>01 / YOUR IMPACT</b><p>Your choice is saved on this device. Shared results refresh automatically.</p></div>
-<div class="mini"><b>02 / WHAT HAPPENS NEXT?</b><p>The winning option becomes the next build. Every new experiment starts with the community.</p></div>
-</div>
-<footer class="foot"><span>NOT A GAME. NOT JUST A POLL.</span><span>BUILT BY THE INTERNET, ONE DECISION AT A TIME.</span></footer>
+
+  <header class="topbar">
+
+    <div><span class="live">SYSTEM ONLINE</span></div>
+
+    <div class="top-right">TRANSMISSION_001<br>NO SAFE MODE</div>
+
+  </header>
+
+  <section class="hero">
+
+    <div class="kicker">⚠ AN EXPERIMENT WITH NO EXIT ⚠</div>
+
+    <h1>THE INTERNET<br>DECIDES</h1>
+
+    <p class="subtitle">ONE CHOICE. ONE OUTCOME. <strong>NO TAKEBACKS.</strong></p>
+
+  </section>
+
+  <section class="scene" aria-label="Rotating 3D ASHTREY logo">
+
+    <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+
+    <div class="word-stage"><div class="word">ASHTREY</div></div>
+
+    <div class="scene-label">A S H T R E Y // ROTATING IDENTITY</div>
+
+  </section>
+
+  <section class="alien-area">
+
+    <div class="alien" aria-label="Alien insignia">
+
+      <svg viewBox="0 0 120 140" role="img" aria-label="Original alien emblem">
+
+        <defs>
+
+          <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+
+            <stop offset="0" stop-color="#ff315a"/>
+
+            <stop offset=".48" stop-color="#390047"/>
+
+            <stop offset="1" stop-color="#b900ff"/>
+
+          </linearGradient>
+
+          <linearGradient id="eye" x1="0" y1="0" x2="1" y2="1">
+
+            <stop offset="0" stop-color="#eaff00"/>
+
+            <stop offset="1" stop-color="#ff003c"/>
+
+          </linearGradient>
+
+        </defs>
+
+        <path d="M60 5 L78 18 103 25 96 45 109 65 92 80 87 111 60 134 33 111 28 80 11 65 24 45 17 25 42 18Z" fill="#100014" stroke="url(#metal)" stroke-width="3"/>
+
+        <path d="M60 14 L72 30 88 37 82 59 90 76 77 103 60 121 43 103 30 76 38 59 32 37 48 30Z" fill="url(#metal)" opacity=".6"/>
+
+        <path d="M31 52 Q42 34 56 54 L52 66 35 70Z" fill="#030005" stroke="#ff003c" stroke-width="2"/>
+
+        <path d="M89 52 Q78 34 64 54 L68 66 85 70Z" fill="#030005" stroke="#b000ff" stroke-width="2"/>
+
+        <path d="M60 35 L67 46 60 53 53 46Z" fill="url(#eye)"/>
+
+        <path d="M42 83 L60 94 78 83 73 104 60 112 47 104Z" fill="#050006" stroke="#ff003c" stroke-width="2"/>
+
+        <path d="M48 88 L55 94 50 101 M60 95 L60 106 M72 88 L65 94 70 101" fill="none" stroke="#e7c6ff" stroke-width="2"/>
+
+        <path d="M8 88 L21 91 M99 91 L112 88 M22 113 L34 109 M86 109 L98 113" stroke="#d7ff00" stroke-width="2"/>
+
+        <circle cx="44" cy="56" r="3" fill="#d7ff00"/><circle cx="76" cy="56" r="3" fill="#d7ff00"/>
+
+      </svg>
+
+    </div>
+
+    <div>
+
+      <h2 class="alien-title">UNKNOWN ENTITY</h2>
+
+      <p class="alien-copy">ENTITY ID: <strong>ASH-001</strong><br>
+
+      ORIGIN: <strong>UNCONFIRMED</strong><br>
+
+      It has been watching the signal. Nobody knows why. Your vote may change what happens next.</p>
+
+    </div>
+
+  </section>
+
+  <section id="vote">
+
+    <div class="section-head">
+
+      <h2>CHOOSE YOUR DAMAGE.</h2>
+
+      <span>NO NEUTRAL<br>GROUND</span>
+
+    </div>
+
+    <p class="prompt">Two possible futures. The internet gets one vote from this browser. Pick the timeline you want to unleash.</p>
+
+    <div class="options">
+
+      <button class="option" id="blackoutBtn" onclick="vote('the_blackout')">
+
+        <div class="option-top">TIMELINE_01 / RED</div>
+
+        <h3>THE<br>BLACKOUT</h3>
+
+        <p>A mysterious website that unlocks one hidden secret every day.</p>
+
+        <span class="vote-action">[ INITIATE BLACKOUT ↗ ]</span>
+
+      </button>
+
+      <button class="option chaos" id="chaosBtn" onclick="vote('the_chaos')">
+
+        <div class="option-top">TIMELINE_02 / VOID</div>
+
+        <h3>THE<br>CHAOS</h3>
+
+        <p>A live chain of decisions where every vote changes the next challenge.</p>
+
+        <span class="vote-action">[ RELEASE CHAOS ↗ ]</span>
+
+      </button>
+
+    </div>
+
+    <div class="results">
+
+      <div class="results-head"><span>LIVE TRANSMISSION</span><strong id="total">-- TOTAL VOTES</strong></div>
+
+      <div class="result-row">
+
+        <div class="result-meta"><span>THE BLACKOUT</span><span id="blackoutPct">--%</span></div>
+
+        <div class="track"><div class="fill" id="blackoutBar"></div></div>
+
+      </div>
+
+      <div class="result-row">
+
+        <div class="result-meta"><span>THE CHAOS</span><span id="chaosPct">--%</span></div>
+
+        <div class="track"><div class="fill purple" id="chaosBar"></div></div>
+
+      </div>
+
+      <div class="status" id="status" role="status" aria-live="polite">Establishing connection to the signal...</div>
+
+    </div>
+
+    <div class="actions">
+
+      <button class="action primary" onclick="shareExperiment()">↗ TRANSMIT THE SIGNAL</button>
+
+      <button class="action" onclick="refreshVotes()">⟳ REFRESH DATA</button>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+
+    <span>ASHTREY // <strong>THE INTERNET DECIDES</strong></span>
+
+    <span>YOU WERE NOT SUPPOSED TO FIND THIS.</span>
+
+  </footer>
+
 </main>
-<div class="toast" id="toast"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+
+'use strict';
+
+// Public publishable key only. Never put a Supabase secret/service-role key in browser code.
+
 const SUPABASE_URL = 'https://rltlnemfdrowgfxvjkxz.supabase.co';
+
 const SUPABASE_KEY = 'sb_publishable_Z68VI1BqI1PJJlfwDAJVyg__ao3m0qI';
+
 const $ = id => document.getElementById(id);
-const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-let chosen = localStorage.getItem('tid_vote_shared') || null;
+
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let chosen = null;
+
+try { chosen = localStorage.getItem('tid_vote_shared') || null; } catch(e) {}
+
 let busy = false;
-function toast(message) {
-  $('toast').textContent = message;
-  $('toast').style.display = 'block';
-  setTimeout(() => $('toast').style.display = 'none', 3000);
-}
-function showChoice() {
-  ['a','b'].forEach(id => {
-    const value = id === 'a' ? 'blackout' : 'chaos';
-    $(id).classList.toggle('selected', chosen === value);
-    $(id).disabled = !!chosen || busy;
-  });
-}
-async function refreshResults() {
-  const { data, error } = await db.rpc('get_vote_totals');
-  if (error) {
-    $('hint').textContent = 'Could not load shared results. Check your Supabase settings.';
-    console.error(error);
-    return;
-  }
-  const totals = Array.isArray(data) ? data[0] : data;
-  if (!totals) return;
-  const a = Number(totals.the_blackout);
-  const b = Number(totals.the_chaos);
-  const total = a + b;
-  const pa = total ? Math.round(a / total * 100) : 0;
-  const pb = total ? 100 - pa : 0;
-  $('pa').textContent = pa + '%';
-  $('pb').textContent = pb + '%';
-  $('ba').style.width = pa + '%';
-  $('bb').style.width = pb + '%';
-  $('hint').textContent = total + ' shared votes recorded.' +
-    (chosen ? ' Your vote is saved on this device.' : ' Cast your vote.');
-}
-async function vote(option) {
-  if (chosen || busy) return;
-  busy = true;
-  showChoice();
-  const choice = option === 'a' ? 'blackout' : 'chaos';
-  const { error } = await db.rpc('cast_vote', { p_choice: choice });
-  busy = false;
-  if (error) {
-    showChoice();
-    toast('Vote failed. Please try again.');
-    console.error(error);
-    return;
-  }
-  chosen = choice;
-  localStorage.setItem('tid_vote_shared', choice);
-  showChoice();
-  await refreshResults();
-  toast('VOTE RECORDED ✓');
-}
-async function share() {
-  const data = {
-    title: 'THE INTERNET DECIDES',
-    text: 'One question. Two possible futures. What should the internet decide?',
-    url: location.href
-  };
-  try {
-    if (navigator.share) await navigator.share(data);
-    else {
-      await navigator.clipboard.writeText(location.href);
-      toast('LINK COPIED — send it to a friend');
+
+function setStatus(message){ $('status').textContent = message; }
+
+async function refreshVotes(){
+
+  try{
+
+    const {data,error} = await db.rpc('get_vote_totals');
+
+    if(error) throw error;
+
+    let row = Array.isArray(data) ? data[0] : data;
+
+    if(!row && data && typeof data === 'object') row = data;
+
+    if(!row) throw new Error('No totals returned');
+
+    const blackout = Number(row.the_blackout ?? row.blackout ?? 0) || 0;
+
+    const chaos = Number(row.the_chaos ?? row.chaos ?? 0) || 0;
+
+    const total = blackout + chaos;
+
+    const bp = total ? Math.round(blackout / total * 100) : 0;
+
+    const cp = total ? 100 - bp : 0;
+
+    $('total').textContent = total + ' TOTAL VOTES';
+
+    $('blackoutPct').textContent = bp + '% · ' + blackout;
+
+    $('chaosPct').textContent = cp + '% · ' + chaos;
+
+    $('blackoutBar').style.width = bp + '%';
+
+    $('chaosBar').style.width = cp + '%';
+
+    if(chosen){
+
+      $('blackoutBtn').style.opacity = chosen === 'the_blackout' ? '1' : '.55';
+
+      $('chaosBtn').style.opacity = chosen === 'the_chaos' ? '1' : '.55';
+
+      setStatus('Your browser has already cast a vote. The signal is still updating.');
+
+    } else {
+
+      setStatus('Connection established. Choose a timeline.');
+
     }
-  } catch (e) {}
+
+  }catch(error){
+
+    console.error('Vote totals error:',error);
+
+    setStatus('Signal interrupted. Check your connection and try refreshing.');
+
+  }
+
 }
-showChoice();
-refreshResults();
-setInterval(refreshResults, 10000);
+
+async function vote(choice){
+
+  if(busy) return;
+
+  if(chosen){
+
+    setStatus('This browser has already voted. You can still share the experiment.');
+
+    return;
+
+  }
+
+  if(choice !== 'the_blackout' && choice !== 'the_chaos') return;
+
+  busy = true;
+
+  $('blackoutBtn').disabled = true;
+
+  $('chaosBtn').disabled = true;
+
+  setStatus('TRANSMITTING VOTE... DO NOT DISCONNECT.');
+
+  try{
+
+    const {error} = await db.rpc('cast_vote',{p_choice:choice});
+
+    if(error) throw error;
+
+    chosen = choice;
+
+    try{localStorage.setItem('tid_vote_shared',choice);}catch(e){}
+
+    setStatus('VOTE RECEIVED. YOUR TIMELINE IS LOCKED IN.');
+
+    await refreshVotes();
+
+  }catch(error){
+
+    console.error('Vote error:',error);
+
+    setStatus('TRANSMISSION FAILED. No confirmation received. Try again.');
+
+  }finally{
+
+    busy = false;
+
+    $('blackoutBtn').disabled = false;
+
+    $('chaosBtn').disabled = false;
+
+  }
+
+}
+
+async function shareExperiment(){
+
+  const data = {
+
+    title:'THE INTERNET DECIDES // ASHTREY',
+
+    text:'Two futures. One internet. Which one are you choosing?',
+
+    url:window.location.href
+
+  };
+
+  try{
+
+    if(navigator.share){
+
+      await navigator.share(data);
+
+    }else if(navigator.clipboard && navigator.clipboard.writeText){
+
+      await navigator.clipboard.writeText(data.url);
+
+      setStatus('SIGNAL LINK COPIED. SEND IT INTO THE VOID.');
+
+    }else{
+
+      window.prompt('Copy this link and share the signal:',data.url);
+
+    }
+
+  }catch(error){
+
+    if(error && error.name !== 'AbortError'){
+
+      window.prompt('Copy this link and share the signal:',data.url);
+
+    }
+
+  }
+
+}
+
+refreshVotes();
+
+setInterval(refreshVotes,10000);
+
 </script>
+
 </body>
+
 </html>
